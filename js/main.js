@@ -22,7 +22,7 @@
 			if ($(window).width() > 768) {
 				$('.js-fullheight').css('height', $(window).height());
 			} else {
-				$('.js-fullheight').css('height', 'auto');
+				$('.js-fullheight').css('height', window.innerHeight);
 				$('.hero').css('height', 'auto');
 				$('.slider-item').css('height', 'auto');
 			}
