@@ -73,17 +73,29 @@
 
 	var onePageClick = function() {
 
+		$(document).on('click', '#ftco-nav a[href^="#"]', function(event) {
+			event.preventDefault();
 
-		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
-	    event.preventDefault();
+			var href = $(this).attr('href');
+			var target = $(href);
 
-	    var href = $.attr(this, 'href');
+			if (target.length) {
 
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+				var navHeight = $('#ftco-navbar').outerHeight() + 10;
+
+				var extraOffset = 0;
+
+				if ($(window).width() <= 768) {
+					extraOffset = 40;
+				}
+
+				$('html, body').animate({
+					scrollTop: target.offset().top - navHeight - extraOffset
+				}, 600);
+
+				$('.navbar-collapse').collapse('hide');
+				$('.js-fh5co-nav-toggle').removeClass('active');
+			}
 		});
 
 	};
@@ -284,13 +296,4 @@
     fixedContentPos: false
   });
 
-  $('.navbar-nav a').on('click', function(){
-	if($('.navbar-toggler').is(':visible')){
-		$('.navbar-collapse').collapse('hide');
-	}
-  });
-
-
-
 })(jQuery);
-

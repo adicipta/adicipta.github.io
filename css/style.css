@@ -47,7 +47,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block; }
+  display: block;
+  scroll-margin-top: 80px; }
 
 body {
   margin: 0;
@@ -67,10 +68,22 @@ body {
   }
 
   .hero,
+  .home-slider,
   .slider-item,
   .js-fullheight {
-      height: auto !important;
-      min-height: 100vh;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .slider-item .img {
+    height: 300px;
+    background-size: contain;
+    background-position: center top;
+  }
+
+  .slider-text {
+    padding-top: 120px;
+    padding-bottom: 80px;
   }
 }
 
