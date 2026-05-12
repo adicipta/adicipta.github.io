@@ -18,12 +18,20 @@
 
 
 	var fullHeight = function() {
+		var setHeight = function() {
+			if ($(window).width() > 768) {
+				$('.js-fullheight').css('height', $(window).height());
+			} else {
+				$('.js-fullheight').css('height', 'auto');
+				$('.hero').css('height', 'auto');
+				$('.slider-item').css('height', 'auto');
+			}
+		};
+		setHeight();
 
-		$('.js-fullheight').css('height', $(window).height());
 		$(window).resize(function(){
-			$('.js-fullheight').css('height', $(window).height());
+			setHeight();
 		});
-
 	};
 	fullHeight();
 
@@ -269,7 +277,11 @@
     fixedContentPos: false
   });
 
-
+  $('.navbar-nav a').on('click', function(){
+	if($('.navbar-toggler').is(':visible')){
+		$('.navbar-collapse').collapse('hide');
+	}
+  });
 
 
 

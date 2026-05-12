@@ -57,7 +57,22 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  body {
+      overflow-x: hidden;
+      overflow-y: auto !important;
+  }
+
+  .hero,
+  .slider-item,
+  .js-fullheight {
+      height: auto !important;
+      min-height: 100vh;
+  }
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
