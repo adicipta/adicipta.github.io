@@ -72,7 +72,6 @@
 
 
 	var onePageClick = function() {
-
 		$(document).on('click', '#ftco-nav a[href^="#"]', function(event) {
 			event.preventDefault();
 
@@ -81,20 +80,24 @@
 
 			if (target.length) {
 
-				var navHeight = $('#ftco-navbar').outerHeight() + 10;
-
-				var extraOffset = 0;
-
-				if ($(window).width() <= 768) {
-					extraOffset = 40;
-				}
-
-				$('html, body').animate({
-					scrollTop: target.offset().top - navHeight - extraOffset
-				}, 600);
-
 				$('.navbar-collapse').collapse('hide');
 				$('.js-fh5co-nav-toggle').removeClass('active');
+
+				setTimeout(function() {
+
+					let offset = target.offset().top;
+
+					if ($(window).width() <= 768) {
+						offset = offset - 90;
+					} else {
+						offset = offset - $('#ftco-navbar').outerHeight();
+					}
+
+					$('html, body').animate({
+						scrollTop: offset
+					}, 600);
+
+				}, 300);
 			}
 		});
 
